@@ -75,7 +75,7 @@ const Home = () => {
       <Terminal />
 
       {/* Events Section */}
-      <div style={{ background: '#f9fafb', padding: '6rem 0' }}>
+      <div style={{ background: '#f9fafb', padding: '3rem 0' }}>
         <section className="section" id="events">
           <div className="container mx-auto px-4">
             <h1 className="text-5xl md:text-7xl font-black mb-12" style={{ letterSpacing: '-0.02em', textTransform: 'uppercase', fontWeight: '900', lineHeight: '1.1', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', textAlign: 'left', color: '#1a1a1a', textShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', position: 'relative', paddingBottom: '1rem' }}>
@@ -85,10 +85,12 @@ const Home = () => {
               <div style={{ position: 'absolute', bottom: '0', left: '0', width: '60px', height: '4px', background: 'linear-gradient(90deg, #059669 0%, #10b981 100%)', borderRadius: '2px', boxShadow: '0 2px 4px rgba(5, 150, 105, 0.3)' }}></div>
             </h1>
             {Object.entries(groupedEvents).map(([month, monthEvents]) => (
-              <motion.div key={month} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <motion.div key={month} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
                 <div className="grid gap-8">
                   {monthEvents.map((event, eventIndex) => (
-                    <motion.div key={event.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 * eventIndex }} whileHover={{ y: -4, scale: 1.02 }} className="card event-card overflow-hidden hover:shadow-xl transition-all duration-300" style={{ display: 'flex', flexDirection: 'column', background: '#ffffff', border: '3px solid #000000', borderRadius: '16px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1)' }} onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1)'; }} onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1)'; }}>
+                    <motion.div key={event.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.05, delay: 0.1 * eventIndex }} whileHover={{ y: -4, scale: 1.02 }} className="card event-card overflow-hidden" 
+                    // --- TRANSITION SPEED CHANGED HERE ---
+                    style={{ display: 'flex', flexDirection: 'column', background: '#ffffff', border: '3px solid #000000', borderRadius: '16px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1)', transition: 'all 0.2s ease-in-out' }} onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1)'; }} onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1)'; }}>
                       <div className="p-5 pb-2">
                         <div className={`inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-semibold ${event.tagColor === 'green' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-gray-800 text-white shadow-md'}`}>
                           {event.hasIcon && (<svg className="w-3 h-3 mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>)}
@@ -117,7 +119,7 @@ const Home = () => {
       </div>
 
       {/* Projects Section */}
-      <div style={{ background: '#ffffff', padding: '6rem 0' }}>
+      <div style={{ background: '#ffffff', padding: '3rem 0' }}>
         <section className="section" id="projects">
           <div className="container mx-auto px-4">
             <h1 className="text-5xl md:text-7xl font-black mb-12" style={{ letterSpacing: '-0.02em', textTransform: 'uppercase', fontWeight: '900', lineHeight: '1.1', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', textAlign: 'left', color: '#1a1a1a', textShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', position: 'relative', paddingBottom: '1rem' }}>
@@ -126,9 +128,11 @@ const Home = () => {
               </span>
               <div style={{ position: 'absolute', bottom: '0', left: '0', width: '60px', height: '4px', background: 'linear-gradient(90deg, #059669 0%, #10b981 100%)', borderRadius: '2px', boxShadow: '0 2px 4px rgba(5, 150, 105, 0.3)' }}></div>
             </h1>
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}>
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: 0.1 }}>
               <div className="grid gap-8">
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} whileHover={{ y: -4, scale: 1.02 }} className="card project-card overflow-hidden hover:shadow-xl transition-all duration-300" style={{ display: 'flex', flexDirection: 'column', minHeight: '340px', background: '#ffffff', border: '3px solid #000000', borderRadius: '16px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1)' }} onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1)'; }} onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1)'; }}>
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.05, delay: 0.1 }} whileHover={{ y: -4, scale: 1.02 }} className="card project-card overflow-hidden" 
+                // --- TRANSITION SPEED CHANGED HERE ---
+                style={{ display: 'flex', flexDirection: 'column', minHeight: '340px', background: '#ffffff', border: '3px solid #000000', borderRadius: '16px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1)', transition: 'all 0.2s ease-in-out' }} onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1)'; }} onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1)'; }}>
                   <div style={{ height: '180px', overflow: 'hidden', borderTopLeftRadius: '14px', borderTopRightRadius: '14px', position: 'relative' }}>
                     <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
                   </div>
@@ -155,12 +159,12 @@ const Home = () => {
       <style jsx>{`
         .grid {
           display: grid;
-          grid-template-columns: repeat(1, 1fr); /* Default to 1 column */
+          grid-template-columns: repeat(1, 1fr);
           gap: 2rem;
         }
         .event-card, .project-card {
-            max-width: 400px; /* Set a max-width for the cards */
-            margin: 0 auto; /* Center the card in the grid column */
+            max-width: 400px;
+            margin: 0 auto;
         }
         @media (min-width: 768px) {
           .grid {
